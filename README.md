@@ -4,7 +4,7 @@
 
 **About the Project**
 
-Gym Bro is a Gym Workout Tracker, a comprehensive exercise-tracking program designed to help users record and analyze their workout sessions. The application allows users to create workout records, specifying the total workout duration for a single time, and the details for different types of exercise (cardio or weight). For cardio exercises, users can choose from various equipment options, inputting the duration of each activity. For weight exercises, users can select specific muscle groups, and choose the equipment used, records the weight lifted, and the number of sets performed. Additionally, users can  view their workout data trends over time, allowing them to track their performance and make informed decisions about their fitness plan.
+Gym Bro is a Gym Workout Tracker, a comprehensive exercise-tracking program designed to help users record and analyze their workout sessions. The application allows users to create workout records, specifying the total workout duration for a single time, and the details for different types of exercise (cardio or weight). For cardio exercises, users can choose from various equipment options, inputting the duration of each activity. For weight exercises, users can select specific muscle groups, and choose the equipment used, records the weight lifted, and the number of sets performed. Additionally, users can  view their workout data over time, allowing them to track their performance and make informed decisions about their fitness plan.
 
 **Use Case**
 
@@ -16,3 +16,10 @@ This idea interests me as I embarked on my fitness journey a few months ago. Dur
 
 After exploring existing fitness apps, I found many to either require payment for basic features or inundate users with many advertisements. Moreover, these apps often lacked the simplicity I sought in a workout tracking tool.
 
+## User Stories
+
+- As a user, I want to be able to create a new workout session (with duration) and add it to workout records.
+- As a user, I want to be able to select a workout session and add a new exercise (including equipment, duration, or weight/sets corresponding to different exercises) to that session.
+- As a user, I want to be able to select a workout session and view a list of exercises with details (duration or weight/sets corresponding to different exercises) performed during that session.
+- As a user, I want to be able to see the total hours spend on workout.
+- As a user, I want to be able to see the list of equipments I never used.

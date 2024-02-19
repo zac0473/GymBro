@@ -10,6 +10,8 @@ public class GymBroApp {
     private WorkoutRecords workoutRecords;
     private Scanner input;
 
+
+    // EFFECTS: print out main manu, make choice for first page
     public GymBroApp() {
 
         input = new Scanner(System.in);
@@ -34,6 +36,8 @@ public class GymBroApp {
         }
     }
 
+
+    // EFFECTS: print out menu for first page
     private static void displayMainMenu() {
         System.out.println("Welcome to gym bro");
         System.out.println("Track and manage your workout sessions effortlessly.");
@@ -43,6 +47,8 @@ public class GymBroApp {
         System.out.print("Please enter your choice: ");
     }
 
+
+    // EFFECTS: create a new workout record and finish all workout session inside
     private void createWorkoutRecord() {
         workoutRecords = new WorkoutRecords();
         System.out.println("You successfully created a workout record.");
@@ -72,6 +78,8 @@ public class GymBroApp {
         }
     }
 
+
+    // EFFECTS: get total duration for workout session
     private int getTotalDuration() {
         int totalDuration = 0;
 
@@ -88,6 +96,8 @@ public class GymBroApp {
         return totalDuration;
     }
 
+
+    // EFFECTS: get a workout session and print a report for it
     private void viewWorkoutSession(WorkoutRecords workoutRecord) {
         if (workoutRecords.getTotalWorkoutSessionNum() <= 0) {
             System.out.println("You don't have any record yet. Please add some in first.");
@@ -104,6 +114,8 @@ public class GymBroApp {
         }
     }
 
+
+    // EFFECTS: print a report for given workout session
     private void workoutSessionReport(WorkoutSession workoutSession) {
         List<Exercise> exerciseList = workoutSession.getExerciseList();
         for (Exercise exercise : exerciseList) {
@@ -123,6 +135,7 @@ public class GymBroApp {
     }
 
 
+    // EFFECTS: print out menu for inside workout record page
     private static void displayWorkoutRecordMenu() {
         System.out.println("Choose an option by entering the corresponding number:");
         System.out.println("1. Add Workout Session");
@@ -132,6 +145,8 @@ public class GymBroApp {
         System.out.print("Enter your choice: ");
     }
 
+
+    // EFFECTS: create a new workout session with given total duration and add exercise into it
     private WorkoutSession createWorkoutSession(int totalDuration) {
         WorkoutSession thisWorkoutSession = new WorkoutSession(totalDuration);
         boolean returnToLastMenu = true;
@@ -163,6 +178,7 @@ public class GymBroApp {
         return thisWorkoutSession;
     }
 
+    // EFFECTS: create a cardio exercise within total duration
     private Cardio getCardio(int totalCardioDuration, int totalDuration) {
         Cardio thisCardio = null;
         int duration = 0;
@@ -184,6 +200,7 @@ public class GymBroApp {
         return thisCardio;
     }
 
+    // EFFECTS: get a valid data weight lifting exercise
     private LiftWeight getLiftWeight() {
         WeightExercises exerciseType = weightExerciseSelector();
         double weight = 0;
@@ -204,6 +221,7 @@ public class GymBroApp {
         return thisLiftWeight;
     }
 
+    // EFFECTS: get the set of the chosen weight lifting exercise
     private int getSets() {
         int sets = 0;
         while (true) {
@@ -219,6 +237,7 @@ public class GymBroApp {
         return sets;
     }
 
+    // EFFECTS: display menu inside workout session page
     private static void displayWorkoutSessionMenu() {
         System.out.println("Choose an option by entering the corresponding number:");
         System.out.println("1. Add Cardio");
@@ -227,6 +246,8 @@ public class GymBroApp {
         System.out.print("Enter your choice: ");
     }
 
+
+    // EFFECTS: get a cardio exercise (one of enum)
     private CardioExercises cardioExerciseSelector() {
         while (true) {
             displayCardioMenu();
@@ -250,6 +271,7 @@ public class GymBroApp {
         }
     }
 
+    // EFFECTS: print out menu of cardio exercise user can choose from
     private static void displayCardioMenu() {
         System.out.println("Please choose a cardio exercise from below:");
         System.out.println("(Choose an option by entering the corresponding number:)");
@@ -260,6 +282,8 @@ public class GymBroApp {
         }
     }
 
+
+    // EFFECTS: get a weight lifting exercise (one of enum)
     private WeightExercises weightExerciseSelector() {
         while (true) {
             displayWeightMenu();
@@ -282,6 +306,7 @@ public class GymBroApp {
         }
     }
 
+    // EFFECTS: print out menu of weight lifting exercise user can choose from
     private static void displayWeightMenu() {
         System.out.print("Please choose a weight lifting exercise from below:");
         System.out.println("(Choose an option by entering the corresponding number:)");

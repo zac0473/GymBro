@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CardioExercisesTest {
 
     @Test
-    public void testGetExerciseName() {
+    public void GetExerciseNameTest() {
         assertEquals("Treadmill", CardioExercises.TREADMILL.getExerciseName());
         assertEquals("Elliptical Machine", CardioExercises.ELLIPTICAL.getExerciseName());
         assertEquals("Stationary Bike", CardioExercises.STATIONARY_BIKE.getExerciseName());
@@ -20,7 +20,7 @@ public class CardioExercisesTest {
     }
 
     @Test
-    public void testToString() {
+    public void ToStringTest() {
         assertEquals("Treadmill", CardioExercises.TREADMILL.toString());
         assertEquals("Elliptical Machine", CardioExercises.ELLIPTICAL.toString());
         assertEquals("Stationary Bike", CardioExercises.STATIONARY_BIKE.toString());

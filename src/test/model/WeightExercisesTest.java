@@ -5,8 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeightExercisesTest {
+
     @Test
-    public void testGetWeightExerciseName() {
+    public void GetWeightExerciseNameTest() {
         assertEquals("Squat", WeightExercises.SQUAT.getWeightExerciseName());
         assertEquals("Leg Press", WeightExercises.LEG_PRESS.getWeightExerciseName());
         assertEquals("Dead lift", WeightExercises.DEADLIFT.getWeightExerciseName());
@@ -32,7 +33,7 @@ public class WeightExercisesTest {
     }
 
     @Test
-    public void testToString() {
+    public void ToStringTest() {
         assertEquals("Squat", WeightExercises.SQUAT.toString());
         assertEquals("Leg Press", WeightExercises.LEG_PRESS.toString());
         assertEquals("Dead lift", WeightExercises.DEADLIFT.toString());

@@ -22,3 +22,8 @@ After exploring existing fitness apps, I found many to either require payment fo
 - As a user, I want to be able to select a workout session and add a new exercise (including equipment, duration, or weight/sets corresponding to different exercises) to that session.
 - As a user, I want to be able to select a workout session and view a list of exercises with details (duration or weight/sets corresponding to different exercises) performed during that session.
 - As a user, I want to be able to see the total hours spend on workout.
+
+**Phase 2**
+
+- As a user, I want to be able to save my workout records (if I so choose)
+- As a user, I want to be able to be able to load my workout records from file (if I so choose)

@@ -69,7 +69,7 @@ public class JsonReader {
 
         if (Cardio.class.getName().equals(exerciseType)) {
             parseCardioExercise(ws, jsonObject);
-        } else if (LiftWeight.class.getName().equals(exerciseType)) {
+        } else {
             parseLiftWeightExercise(ws, jsonObject);
         }
     }

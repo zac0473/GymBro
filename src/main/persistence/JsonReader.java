@@ -10,11 +10,13 @@ import model.*;
 import org.json.*;
 
 // Represents a reader that reads workout records from JSON data stored in file
-// from example
+// Citation: Some code borrowed from
+// JsonSerializationDemo (https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git)
 public class JsonReader {
     private String source;
 
     // EFFECTS: constructs reader to read from source file
+    // Citation: from JsonSerializationDemo
     public JsonReader(String source) {
         this.source = source;
     }
@@ -28,6 +30,7 @@ public class JsonReader {
     }
 
     // EFFECTS: reads source file as string and returns it
+    // Citation: from JsonSerializationDemo
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
 
@@ -43,8 +46,8 @@ public class JsonReader {
         WorkoutRecords wr = new WorkoutRecords();
         JSONArray jsonArray = jsonObject.getJSONArray("workoutRecords");
         for (Object json : jsonArray) {
-            JSONObject nextExercise = (JSONObject) json;
-            addWorkoutSessions(wr, nextExercise);
+            JSONObject nextWorkoutSession = (JSONObject) json;
+            addWorkoutSessions(wr, nextWorkoutSession);
         }
         return wr;
     }

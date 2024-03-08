@@ -26,4 +26,4 @@ After exploring existing fitness apps, I found many to either require payment fo
 **Phase 2**
 
 - As a user, I want to be able to save my workout records (if I so choose)
-- As a user, I want to be able to be able to load my workout records from file (if I so choose)
+- As a user, I want to be able to load the workout records I saved before from file (if I so choose)

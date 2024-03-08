@@ -27,6 +27,7 @@ public class Cardio implements Exercise {
         return this.duration;
     }
 
+    // EFFECTS: returns cardio exercise as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

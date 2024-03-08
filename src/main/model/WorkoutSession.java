@@ -82,6 +82,7 @@ public class WorkoutSession implements Writable {
         return spendOnCardio;
     }
 
+    // EFFECTS: returns Workout session as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

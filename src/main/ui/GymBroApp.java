@@ -53,7 +53,8 @@ public class GymBroApp {
     }
 
 
-    // EFFECTS: create a new workout record and finish all workout session inside
+    // EFFECTS: create a new workout record and finish all workout session inside,
+    // and save or load the workout records so far
     private void createWorkoutRecord() {
         workoutRecords = new WorkoutRecords();
         System.out.println("You successfully created a workout record.");
@@ -339,7 +340,7 @@ public class GymBroApp {
     // EFFECTS: loads workout records from file
     private void loadWorkoutRecords() {
         try {
-            workoutRecords = jsonReader.read();
+            this.workoutRecords = jsonReader.read();
             System.out.println("Loaded your previous workout records from " + JSON_STORE);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + JSON_STORE);

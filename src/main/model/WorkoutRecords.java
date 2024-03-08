@@ -46,6 +46,7 @@ public class WorkoutRecords implements Writable {
         return this.workoutSessions.get(a - 1);
     }
 
+    // EFFECTS: returns Workout Records as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -53,7 +54,7 @@ public class WorkoutRecords implements Writable {
         return json;
     }
 
-    //EFFECTS: returns Workout Session in this workout records as a JSON array
+    //EFFECTS: returns all Workout Session in this workout records as a JSON array
     private JSONArray workoutSessionToJson() {
         JSONArray jsonArray = new JSONArray();
 

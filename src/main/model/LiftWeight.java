@@ -33,6 +33,7 @@ public class LiftWeight implements Exercise {
         return this.sets;
     }
 
+    // EFFECTS: returns lift weight exercise as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

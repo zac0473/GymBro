@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a Cardio exercise record having a name and duration (in minutes)
 public class Cardio implements Exercise {
     private CardioExercises cardioExercise;
@@ -22,5 +25,14 @@ public class Cardio implements Exercise {
     // EFFECTS: get cardio exercise duration
     public int getDuration() {
         return this.duration;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("exerciseType", getClass().getName());
+        json.put("cardioType", cardioExercise);
+        json.put("duration", duration);
+        return json;
     }
 }

@@ -1,5 +1,8 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 // Represents a weight lifting exercise record having a exercise name, weight (in lbs), and sets
 public class LiftWeight implements Exercise {
     private WeightExercises weightExercise;
@@ -28,5 +31,15 @@ public class LiftWeight implements Exercise {
     // EFFECTS: get weight lifting exercise sets number
     public int getSetsNum() {
         return this.sets;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("exerciseType", getClass().getName());
+        json.put("liftType", weightExercise);
+        json.put("weight", weight);
+        json.put("sets", sets);
+        return json;
     }
 }

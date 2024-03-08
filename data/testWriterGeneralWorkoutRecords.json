@@ -1,0 +1,16 @@
+{"workoutRecords": [{
+    "totalDuration": 300,
+    "listOfExercise": [
+        {
+            "duration": 100,
+            "exerciseType": "model.Cardio",
+            "cardioType": "ELLIPTICAL"
+        },
+        {
+            "liftType": "BENCH_PRESS",
+            "sets": 4,
+            "exerciseType": "model.LiftWeight",
+            "weight": 300
+        }
+    ]
+}]}

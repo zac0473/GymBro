@@ -1,10 +1,14 @@
 package model;
 
 // Represents a workout session having a list of exercise and total duration
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class WorkoutSession {
+public class WorkoutSession implements Writable {
 
     private List<Exercise> exercises;
     private int totalDuration;
@@ -76,5 +80,24 @@ public class WorkoutSession {
         }
 
         return spendOnCardio;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("totalDuration", totalDuration);
+        json.put("listOfExercise", exerciseToJson());
+        return json;
+    }
+
+    //EFFECTS: returns exercises in this workout session as a JSON array
+    private JSONArray exerciseToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Exercise e : exercises) {
+            jsonArray.put(e.toJson());
+        }
+
+        return jsonArray;
     }
 }

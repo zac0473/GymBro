@@ -1,19 +1,27 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 // Gym Bro (workout tracker) application
 public class GymBroApp {
+    private static final String JSON_STORE = "./data/myWorkoutRecords.json";
     private WorkoutRecords workoutRecords;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     // EFFECTS: print out main manu, make choice for first page
     public GymBroApp() {
-
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         input = new Scanner(System.in);
 
         while (true) {
@@ -23,15 +31,12 @@ public class GymBroApp {
             input.nextLine();
 
             switch (choice) {
-                case 1:
-                    createWorkoutRecord();
+                case 1: createWorkoutRecord();
                     break;
-                case 2:
-                    System.out.println("Exiting the application. Goodbye!");
+                case 2: System.out.println("Exiting the application. Goodbye!");
                     System.exit(0);
                     break;
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                default: System.out.println("Invalid choice. Please try again.");
             }
         }
     }
@@ -60,20 +65,20 @@ public class GymBroApp {
             input.nextLine();
 
             switch (choice) {
-                case 1:
-                    workoutRecords.addWorkoutSession(createWorkoutSession(getTotalDuration()));
+                case 1: workoutRecords.addWorkoutSession(createWorkoutSession(getTotalDuration()));
                     break;
-                case 2:
-                    viewWorkoutSession(workoutRecords);
+                case 2: viewWorkoutSession(workoutRecords);
                     break;
                 case 3:
                     System.out.println("You did workout " + workoutRecords.getTotalWorkoutHours() + " hours in total");
                     break;
-                case 4:
-                    System.out.println("Exiting the application. Goodbye!");
+                case 4: saveWorkoutRecords();
+                    break;
+                case 5: loadWorkoutRecords();
+                    break;
+                case 6: System.out.println("Exiting the application. Goodbye!");
                     System.exit(0);
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                default: System.out.println("Invalid choice. Please try again.");
             }
         }
     }
@@ -140,8 +145,9 @@ public class GymBroApp {
         System.out.println("Choose an option by entering the corresponding number:");
         System.out.println("1. Add Workout Session");
         System.out.println("2. View Workout Sessions");
-        System.out.println("3. View Total Workout Hours");
-        System.out.println("4. Exit");
+        System.out.println("4. Save your Workout Records");
+        System.out.println("5. Load your workout records from file");
+        System.out.println("6. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -314,6 +320,29 @@ public class GymBroApp {
         for (WeightExercises weightExercises : WeightExercises.values()) {
             System.out.println(index + ". " + weightExercises.getWeightExerciseName());
             index++;
+        }
+    }
+
+    // EFFECTS: saves the workoutRecords to file
+    private void saveWorkoutRecords() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(workoutRecords);
+            jsonWriter.close();
+            System.out.println("Saved your workout records to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workout records from file
+    private void loadWorkoutRecords() {
+        try {
+            workoutRecords = jsonReader.read();
+            System.out.println("Loaded your previous workout records from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 }

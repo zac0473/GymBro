@@ -1,0 +1,17 @@
+{"workoutRecords": [{
+    "totalDuration": 60,
+    "listOfExercise": [
+        {
+            "liftType": "SQUAT",
+            "sets": 2,
+            "exerciseType": "model.LiftWeight",
+            "weight": 200
+        },
+        {
+            "liftType": "BENCH_PRESS",
+            "sets": 4,
+            "exerciseType": "model.LiftWeight",
+            "weight": 300
+        }
+    ]
+}]}

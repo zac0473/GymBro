@@ -1,6 +1,7 @@
 package persistence;
 
 import model.*;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -67,6 +68,27 @@ class JsonWriterTest extends JsonTest {
             List<Exercise> listWorkoutSession = workoutSessions.getExerciseList();
             checkCardio(CardioExercises.ELLIPTICAL, 100, (Cardio) listWorkoutSession.get(0));
             checkLiftWeight(WeightExercises.BENCH_PRESS, 300, 4, (LiftWeight) listWorkoutSession.get(1));
+        } catch (IOException e) {
+            fail("Exception should not have been thrown");
+        }
+    }
+
+    @Test
+    void testAddExerciseWeightLiftType() {
+        try {
+            WorkoutRecords wr = new WorkoutRecords();
+            WorkoutSession ws = new WorkoutSession(60);
+            LiftWeight liftWeight = new LiftWeight(WeightExercises.SQUAT, 200, 2);
+            LiftWeight liftWeight2 = new LiftWeight(WeightExercises.BENCH_PRESS, 300, 4);
+            ws.addExercise(liftWeight);
+            ws.addExercise(liftWeight2);
+            wr.addWorkoutSession(ws);
+
+            JsonWriter writer = new JsonWriter("./data/testAddExerciseWeightLiftType.json");
+            writer.open();
+            writer.write(wr);
+            writer.close();
+
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }

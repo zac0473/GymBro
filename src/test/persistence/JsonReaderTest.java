@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class JsonReaderTest extends JsonTest {
 
     @Test
-    void testReaderNonExistentFile() {
+    void readerNonExistentFileTest() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
             WorkoutRecords wr = reader.read();
@@ -23,7 +23,7 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderEmptyWorkRoom() {
+    void readerEmptyWorkoutRecordsTest() {
         JsonReader reader = new JsonReader("./data/testWriterEmptyWorkoutRecords.json");
         try {
             WorkoutRecords wr = reader.read();
@@ -35,7 +35,7 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testReaderGeneralWorkRoom() {
+    void readerGeneralWorkoutRecordsTest() {
         JsonReader reader = new JsonReader("./data/testWriterGeneralWorkoutRecords.json");
         try {
             WorkoutRecords wr = reader.read();
@@ -56,7 +56,7 @@ class JsonReaderTest extends JsonTest {
     }
 
     @Test
-    void testAddExerciseUnknownType() {
+    void addExerciseUnknownTypeTest() {
         JsonReader reader = new JsonReader("./data/testAddExerciseWeightLiftType.json");
 
         try {

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class JsonWriterTest extends JsonTest {
 
     @Test
-    void testWriterInvalidFile() {
+    void writerInvalidFileTest() {
         try {
             WorkoutRecords wr = new WorkoutRecords();
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
@@ -24,7 +24,7 @@ class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testWriterEmptyWorkoutRecords() {
+    void writerEmptyWorkoutRecordsTest() {
         try {
             WorkoutRecords wr = new WorkoutRecords();
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkoutRecords.json");
@@ -41,7 +41,7 @@ class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testWriterGeneralWorkoutRecords() {
+    void writerGeneralWorkoutRecordsTest() {
         try {
             Cardio cardio = new Cardio(CardioExercises.ELLIPTICAL, 100);
             LiftWeight liftWeight = new LiftWeight(WeightExercises.BENCH_PRESS, 300, 4);
@@ -74,7 +74,7 @@ class JsonWriterTest extends JsonTest {
     }
 
     @Test
-    void testAddExerciseWeightLiftType() {
+    void addExerciseWeightLiftTypeTest() {
         try {
             WorkoutRecords wr = new WorkoutRecords();
             WorkoutSession ws = new WorkoutSession(60);

@@ -28,9 +28,8 @@ public class GymBroGUI extends JFrame implements ActionListener {
     private JButton exitButton;
     private JButton createWorkoutButton;
     private JButton viewWorkoutButton;
-    private ImageIcon welcomePage;
 
-    // EFFECTS: initialize fields and create welcome page and let user choose
+    // EFFECTS: initialize fields and create welcome page and let user start
     public GymBroGUI() {
         workoutRecords = new WorkoutRecords();
         totalWorkoutLabel = new JLabel("You did workout 0 hours in total");
@@ -42,7 +41,6 @@ public class GymBroGUI extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Welcome Panel
         JPanel welcomePanel = new JPanel(new GridLayout(3, 1));
         JLabel welcomeLabel = new JLabel("Welcome to Gym Bro - Track and view your workout "
                 + "effortlessly.");
@@ -75,13 +73,14 @@ public class GymBroGUI extends JFrame implements ActionListener {
         splashScreen.dispose();
     }
 
-    // EFFECTS: update the workout label (workout hour)
+    // EFFECTS: update the workout hour label displayed in main menu
     private void updateTotalWorkoutLabel() {
         double totalWorkoutHour = workoutRecords.getTotalWorkoutHours();
         totalWorkoutLabel.setText("You did workout " + totalWorkoutHour + " hours in total");
     }
 
-    // EFFECTS: create a new frame with given width and height
+    // REQUIRES: width > 0 && height > 0
+    // EFFECTS: create a new frame with given width, height and title
     private JFrame createANewFrame(int width, int height, String title) {
         JFrame frame = new JFrame();
         frame.setTitle(title);
@@ -92,7 +91,8 @@ public class GymBroGUI extends JFrame implements ActionListener {
         return frame;
     }
 
-    // EFFECTS: override actionPerformed to call specific method when specific button is pressed
+    // EFFECTS: override actionPerformed to call specific method when specific button is pressed in welcome page
+    // and main menu
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == startButton) {
@@ -102,15 +102,15 @@ public class GymBroGUI extends JFrame implements ActionListener {
         } else if (e.getSource() == exitButton) {
             System.exit(0);
         } else if (e.getSource() == jsonWriterButton) {
-            writeJson();
+            saveFile();
         } else if (e.getSource() == jsonReaderButton) {
-            readJson();
+            readFile();
         } else if (e.getSource() == viewWorkoutButton) {
             viewWorkout();
         }
     }
 
-    // EFFECTS: create a new window and let user choose to view their workout records
+    // EFFECTS: create a new frame and let user choose to view their workout records
     private void viewWorkout() {
         JFrame viewWorkoutFrame = createANewFrame(800, 600, "Gym Bro - View Workout Records");
         JPanel panel = new JPanel(new GridLayout(2, 1));
@@ -125,7 +125,6 @@ public class GymBroGUI extends JFrame implements ActionListener {
         });
 
         JButton viewByDurationButton = new JButton("View by duration");
-
         viewByDurationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -133,13 +132,14 @@ public class GymBroGUI extends JFrame implements ActionListener {
                 viewWorkoutFrame.dispose();
             }
         });
+
         panel.add(viewSpecificButton);
         panel.add(viewByDurationButton);
         viewWorkoutFrame.add(panel);
         viewWorkoutFrame.setVisible(true);
     }
 
-    // EFFECTS: create a new window and let user view their workout records by duration
+    // EFFECTS: create a new frame and let user view their workout records by duration
     private void viewByDuration() {
         JFrame viewByDurationFrame = createANewFrame(800, 600, "Gym Bro - View by Duration");
 
@@ -168,7 +168,7 @@ public class GymBroGUI extends JFrame implements ActionListener {
         viewByDurationFrame.setVisible(true);
     }
 
-    // EFFECTS: create a view button that display the result depends on users' input
+    // EFFECTS: create a view button in view by duration that display the result depends on users' input
     private JButton addViewDurationButton(JFrame viewByDurationFrame, JPanel panel,
                                           JComboBox<String> conditionComboBox, JTextField durationTextField) {
         JButton viewButton = new JButton("View");
@@ -197,7 +197,7 @@ public class GymBroGUI extends JFrame implements ActionListener {
         return viewButton;
     }
 
-    //EFFECTS: count the number of workout sessions in the records by given condition and duration
+    // EFFECTS: count the number of workout sessions in the workout records by given condition and duration
     private int countWorkoutSessionByCondition(String selectedCondition, int duration) {
         int count = 0;
         for (WorkoutSession workoutSession : workoutRecords.getAllWorkoutSession()) {
@@ -212,7 +212,7 @@ public class GymBroGUI extends JFrame implements ActionListener {
         return count;
     }
 
-    //EFFECTS: create a new window and let user view specific workout records that they chose
+    // EFFECTS: create a new frame and let user view specific workout records that they chose from the drop-down box
     private void viewSpecific() {
         JFrame viewSpecificFrame = createANewFrame(800, 600, "Gym Bro - View Specific One");
 
@@ -237,7 +237,7 @@ public class GymBroGUI extends JFrame implements ActionListener {
         viewSpecificFrame.setVisible(true);
     }
 
-    //EFFECTS: create a back button that close present page
+    // EFFECTS: create a back button that close given page
     private JButton addBackButton(JFrame viewSpecificFrame) {
         JButton backToMainPageButton = new JButton("close");
         backToMainPageButton.addActionListener(new ActionListener() {
@@ -249,7 +249,8 @@ public class GymBroGUI extends JFrame implements ActionListener {
         return backToMainPageButton;
     }
 
-    //EFFECTS: create a view button for view specific page that shows the result of user's chosen workout session
+    // EFFECTS: create a view button for view specific page that shows the result of user's chosen workout session
+    // from the drop-down box
     private JButton addViewSpecificButton(JComboBox<Integer> sessionComboBox, JFrame viewSpecificFrame) {
         JButton viewButton = new JButton("View");
         viewButton.addActionListener(new ActionListener() {
@@ -270,11 +271,11 @@ public class GymBroGUI extends JFrame implements ActionListener {
         return viewButton;
     }
 
-    //EFFECTS: create a new page and add a workout session according to user's input
+    // EFFECTS: create a new frame and add a workout session according to user's input (duration in minutes)
     private void addWorkoutSession() {
         JFrame addWorkoutFrame = createANewFrame(800, 600, "Gym Bro - Add a New Workout Session");
         JPanel panel = new JPanel();
-        JLabel label = new JLabel("How long did you spend on this section (in minutes):");
+        JLabel label = new JLabel("How long did you spend on this session (in minutes):");
         JTextField textField = new JTextField(10);
         JButton submitButton = new JButton("Submit");
 
@@ -296,7 +297,8 @@ public class GymBroGUI extends JFrame implements ActionListener {
         addWorkoutFrame.setVisible(true);
     }
 
-    //EFFECTS: display the main page and buttons
+    // MODIFIES: this
+    // EFFECTS: display the main menu
     private void startToRecord() {
         JFrame mainFrame = createANewFrame(800, 600, "Gym Bro - Main Menu");
         mainFrame.setLayout(new BorderLayout());
@@ -327,8 +329,8 @@ public class GymBroGUI extends JFrame implements ActionListener {
         mainFrame.setVisible(true);
     }
 
-    //EFFECTS: save the workout records to the Json file
-    private void writeJson() {
+    // EFFECTS: save the workout records to the Json file
+    private void saveFile() {
         try {
             jsonWriter.open();
             jsonWriter.write(workoutRecords);
@@ -342,7 +344,7 @@ public class GymBroGUI extends JFrame implements ActionListener {
 
     // MODIFIES: this
     // EFFECTS: loads workout records from Json file
-    private void readJson() {
+    private void readFile() {
         try {
             this.workoutRecords = jsonReader.read();
             System.out.println("Loaded your previous workout records from " + JSON_STORE);
@@ -352,12 +354,12 @@ public class GymBroGUI extends JFrame implements ActionListener {
         }
     }
 
-    //EFFECTS: main method used to display splash screen and the main page
+    // EFFECTS: main method used to display splash screen and call the welcome page afterward
     public static void main(String[] args) {
         displaySplashScreen(splashImagePath, 2500);
 
         SwingUtilities.invokeLater(() -> {
-            GymBroGUI gui = new GymBroGUI();
+            new GymBroGUI();
         });
     }
 }

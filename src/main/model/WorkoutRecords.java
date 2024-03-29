@@ -46,6 +46,11 @@ public class WorkoutRecords implements Writable {
         return this.workoutSessions.get(a - 1);
     }
 
+    // EFFECTS: get the workout records (all workout sessions)
+    public List<WorkoutSession> getAllWorkoutSession() {
+        return this.workoutSessions;
+    }
+
     // EFFECTS: returns Workout Records as JSON object
     @Override
     public JSONObject toJson() {

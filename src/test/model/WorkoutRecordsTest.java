@@ -3,6 +3,9 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WorkoutRecordsTest {
@@ -71,6 +74,23 @@ public class WorkoutRecordsTest {
         assertEquals(workoutSession2, workoutRecords.getThatWorkoutSession(2));
         assertEquals(workoutSession3, workoutRecords.getThatWorkoutSession(3));
         assertEquals(workoutSession1, workoutRecords.getThatWorkoutSession(4));
+    }
+
+    @Test
+    void getAllWorkoutSessionTest() {
+        assertEquals(0, workoutRecords.getTotalWorkoutSessionNum());
+        workoutRecords.addWorkoutSession(workoutSession1);
+        workoutRecords.addWorkoutSession(workoutSession2);
+        workoutRecords.addWorkoutSession(workoutSession3);
+        workoutRecords.addWorkoutSession(workoutSession1);
+
+        List<WorkoutSession> testList = new ArrayList<>();
+        testList.add(workoutSession1);
+        testList.add(workoutSession2);
+        testList.add(workoutSession3);
+        testList.add(workoutSession1);
+
+        assertEquals(testList, workoutRecords.getAllWorkoutSession());
     }
 
 }

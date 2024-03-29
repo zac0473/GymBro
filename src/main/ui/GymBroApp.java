@@ -146,6 +146,7 @@ public class GymBroApp {
         System.out.println("Choose an option by entering the corresponding number:");
         System.out.println("1. Add Workout Session");
         System.out.println("2. View Workout Sessions");
+        System.out.println("3. View Total Workout Hours");
         System.out.println("4. Save your Workout Records");
         System.out.println("5. Load your workout records from file");
         System.out.println("6. Exit");

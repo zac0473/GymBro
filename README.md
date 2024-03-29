@@ -27,3 +27,11 @@ After exploring existing fitness apps, I found many to either require payment fo
 
 - As a user, I want to be able to save my workout records (if I so choose)
 - As a user, I want to be able to load the workout records I saved before from file (if I so choose)
+
+# Instructions for Grader
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by clicking the "Add a workout session" button on main menu and type in an integer (duration in minutes) in the next input box then click submit
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by clicking the "View workout sessions" button on main menu and choose to view specific one or by duration. Or there is a display on main menu shows the total duration
+- You can locate my visual component by in the splash screen
+- You can save the state of my application by clicking the "Save my workout records" on the main menu
+- You can reload the state of my application by clicking the "Reload my previous workout records" on the main menu

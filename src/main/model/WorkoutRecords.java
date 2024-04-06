@@ -21,6 +21,8 @@ public class WorkoutRecords implements Writable {
     // EFFECTS: add the workoutSession to the WorkoutRecords
     public void addWorkoutSession(WorkoutSession workoutSession) {
         this.workoutSessions.add(workoutSession);
+        EventLog.getInstance().logEvent(new Event("An Workout Session with duration "
+                + workoutSession.getTotalDuration() + " minutes added to Workout Records"));
     }
 
     // EFFECTS: get total workout duration (in hours) round to the nearest hundredth digit

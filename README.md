@@ -35,3 +35,13 @@ After exploring existing fitness apps, I found many to either require payment fo
 - You can locate my visual component by in the splash screen
 - You can save the state of my application by clicking the "Save my workout records" on the main menu
 - You can reload the state of my application by clicking the "Reload my previous workout records" on the main menu
+
+**Phase 4: Task 2**
+
+Sat Apr 06 14:41:24 PDT 2024 An Workout Session with duration 87 minutes added to Workout Records
+
+Sat Apr 06 14:41:29 PDT 2024 An Workout Session with duration 61 minutes added to Workout Records
+
+Sat Apr 06 14:41:32 PDT 2024 An Workout Session with duration 30 minutes added to Workout Records
+
+Sat Apr 06 14:41:35 PDT 2024 An Workout Session with duration 45 minutes added to Workout Records

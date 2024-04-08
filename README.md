@@ -45,3 +45,10 @@ Sat Apr 06 14:41:29 PDT 2024 An Workout Session with duration 61 minutes added t
 Sat Apr 06 14:41:32 PDT 2024 An Workout Session with duration 30 minutes added to Workout Records
 
 Sat Apr 06 14:41:35 PDT 2024 An Workout Session with duration 45 minutes added to Workout Records
+
+
+**Phase 4: Task 3**
+
+If I have more time to work on it, I will improve the overall design by applying Observer design pattern to decouple the UI components from the underlying model. Currently, the UI components directly interact with the model and the panel updated by manually calling the update method, which can lead to tight coupling and difficulties in maintaining the application.
+
+By applying the Observer pattern, the UI components would subscribe to changes in the model. For example, after users add new workout sessions to the workout records by clicking the submit button, the panel update process would be automated through the Observer's update method. This can help the user interface to remain consistent with the underlying data.

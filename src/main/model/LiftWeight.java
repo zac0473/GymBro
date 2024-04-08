@@ -1,7 +1,6 @@
 package model;
 
 import org.json.JSONObject;
-import persistence.Writable;
 
 // Represents a weight lifting exercise record having a exercise name, weight (in lbs), and sets
 public class LiftWeight implements Exercise {

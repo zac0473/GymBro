@@ -1,7 +1,6 @@
 package model;
 
 import org.json.JSONObject;
-import persistence.Writable;
 
 // Represents a Cardio exercise record having a name and duration (in minutes)
 public class Cardio implements Exercise {

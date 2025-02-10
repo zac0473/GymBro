@@ -22,9 +22,6 @@ After exploring existing fitness apps, I found many to either require payment fo
 - As a user, I want to be able to select a workout session and add a new exercise (including equipment, duration, or weight/sets corresponding to different exercises) to that session.
 - As a user, I want to be able to select a workout session and view a list of exercises with details (duration or weight/sets corresponding to different exercises) performed during that session.
 - As a user, I want to be able to see the total hours spend on workout.
-
-**Phase 2**
-
 - As a user, I want to be able to save my workout records (if I so choose)
 - As a user, I want to be able to load the workout records I saved before from file (if I so choose)
 
@@ -36,8 +33,6 @@ After exploring existing fitness apps, I found many to either require payment fo
 - You can save the state of my application by clicking the "Save my workout records" on the main menu
 - You can reload the state of my application by clicking the "Reload my previous workout records" on the main menu
 
-**Phase 4: Task 2**
-
 Sat Apr 06 14:41:24 PDT 2024 An Workout Session with duration 87 minutes added to Workout Records
 
 Sat Apr 06 14:41:29 PDT 2024 An Workout Session with duration 61 minutes added to Workout Records
@@ -45,9 +40,6 @@ Sat Apr 06 14:41:29 PDT 2024 An Workout Session with duration 61 minutes added t
 Sat Apr 06 14:41:32 PDT 2024 An Workout Session with duration 30 minutes added to Workout Records
 
 Sat Apr 06 14:41:35 PDT 2024 An Workout Session with duration 45 minutes added to Workout Records
-
-
-**Phase 4: Task 3**
 
 If I have more time to work on it, I will improve the overall design by applying Observer design pattern to decouple the UI components from the underlying model. Currently, the UI components directly interact with the model and the panel updated by manually calling the update method, which can lead to tight coupling and difficulties in maintaining the application.
 
